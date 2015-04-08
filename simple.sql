@@ -1,0 +1,1 @@
+SELECT DATABASE() AS wiki, COUNT(*) FROM page;
