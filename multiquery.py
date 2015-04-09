@@ -65,12 +65,12 @@ def run(conn, query, dbnames):
     headers_printed = False
     for i, dbname in enumerate(dbnames):
         with conn.cursor() as cursor:
-            # Select the right database
-            cursor.execute("use {0};".format(conn.escape_string(dbname)))
 
             # Try to run the query
             sys.stderr.write("Executing query on {0}\n".format(dbname))
             try:
+                # Select the right database
+                cursor.execute("use {0};".format(conn.escape_string(dbname)))
                 cursor.execute(query)
 
                 # If we haven't printed headers, print them now

@@ -1,1 +1,1 @@
-SELECT DATABASE() AS wiki, COUNT(*) FROM page;
+SELECT * FROM page limit 1;
