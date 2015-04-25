@@ -81,7 +81,7 @@ def run(conn, query, dbnames):
                 for row in cursor:
                     print("\t".join(encode(v) for v in row))
             except KeyboardInterrupt as e:
-                sys.stderr.write("^C recieved.  Shutting down.\n")
+                sys.stderr.write("^C received.  Shutting down.\n")
                 raise
             except Exception as e:
                 sys.stderr.write(traceback.format_exc())
