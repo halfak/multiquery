@@ -4,7 +4,7 @@ from setuptools import find_packages
 
 setup(
     name='multiquery',
-    version="0.0.1",
+    version="0.0.2",
     author='Aaron Halfaker',
     author_email='aaron.halfaker@gmail.com',
     py_modules=['multiquery'],
