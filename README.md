@@ -5,8 +5,8 @@ together.
 
     Usage:
         multiquery --help
-        multiquery <sqlfile> [<dbname>...] [-d=<path>]
-                   [-h=<host>] [-p=<port>] [-u=<user>] [--password=<pass>]
+        multiquery <sqlfile> [<dbname>...] [-d <path>]
+                   [-h <host>] [-p <port>] [-u <user>] [--password=<pass>]
                    [--defaults-file=<path>]
 
     Options:
