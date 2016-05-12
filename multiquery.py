@@ -5,8 +5,8 @@ together.
 
 Usage:
     multiquery --help
-    multiquery <sqlfile> [<dbname>...] [-d=<path>]
-               [-h=<host>] [-p=<port>] [-u=<user>] [--password=<pass>]
+    multiquery <sqlfile> [<dbname>...] [-d <path>]
+               [-h <host>] [-p <port>] [-u <user>] [--password=<pass>]
                [--defaults-file=<path>]
 
 Options:
@@ -45,6 +45,8 @@ def main(argv=None):
     if args['--defaults-file']:
         mysql_kwargs['read_default_file'] = args['--defaults-file']
 
+    mysql_kwargs['autocommit'] = True # Close transactions after each query
+
     #mysql_kwargs['cursorclass'] = pymysql.cursors.DictCursor
 
     conn = pymysql.connect(**mysql_kwargs)
@@ -81,10 +83,6 @@ def run(conn, query, dbnames):
                 for row in cursor:
                     print("\t".join(encode(v) for v in row))
 
-                # Make sure any open transactions are closed now, rather
-                # than after multiquery finishes all the DBs
-                conn.commit()
-                
             except KeyboardInterrupt as e:
                 sys.stderr.write("^C received.  Shutting down.\n")
                 raise
